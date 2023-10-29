@@ -11,13 +11,9 @@ int main()
     cin >> n >> m;
 
 
-    BigReal a;
-    BigReal b;
+    BigReal a(n);
+    BigReal b(m);
 
-    a.set_num(n);
-    b.set_num(m);
-
-    //cout << a->get_sign() << endl;
 
     if(a == b)
         cout << "equal" << endl;
