@@ -10,8 +10,8 @@ class BigReal
 {
     //private:
     public:
-        string MyNum;           // numbers before index point 
-        string MyNumP = "";          // numbers after index point
+        string MyNum = "0";           // numbers before index point 
+        string MyNumP = "0";          // numbers after index point
         int sign;              // -1 --> negative , 1 --> positive
         int index_point = -1;       // the position of the decimal point
         void set_sign();
