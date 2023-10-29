@@ -36,6 +36,7 @@ void BigReal::set_index_point() {
     }
 }
 
+
 BigReal::BigReal() :MyNum("0")
 {
     set_len();
@@ -47,4 +48,18 @@ BigReal::BigReal(string num) :MyNum(num)
     set_len();
     set_index_point();
     set_sign();
+}
+
+bool operator == (BigReal &a, BigReal &b)
+{
+    if(a.len != b.len)
+        return 0;
+
+    for (int i = 0; i < a.len; i++)
+    {
+        if(a.MyNum[i] != b.MyNum[i])
+            return 0;
+        return 1;
+    }
+    
 }
