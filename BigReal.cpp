@@ -6,7 +6,9 @@
 
 void BigReal::set_num(string num) {
     MyNum = num;
+    
 }
+
 string BigReal::get_num()
 {
     return MyNum;
@@ -55,11 +57,8 @@ bool operator == (BigReal &a, BigReal &b)
     if(a.len != b.len)
         return 0;
 
-    for (int i = 0; i < a.len; i++)
-    {
-        if(a.MyNum[i] != b.MyNum[i])
-            return 0;
+    if(a.MyNum == b.MyNum)
         return 1;
-    }
-    
+
+    return 0;
 }
