@@ -6,6 +6,7 @@
 
 void BigReal::set_num(string num) {
     MyNum = num;
+    set_len();
     
 }
 
@@ -39,14 +40,16 @@ void BigReal::set_index_point() {
 }
 
 
-BigReal::BigReal() :MyNum("0")
+BigReal::BigReal()
 {
+    set_num("0");
     set_len();
     set_index_point();
     set_sign();
 }
-BigReal::BigReal(string num) :MyNum(num)
+BigReal::BigReal(string num)
 {
+    set_num(num);
     set_len();
     set_index_point();
     set_sign();
@@ -62,3 +65,15 @@ bool operator == (BigReal &a, BigReal &b)
 
     return 0;
 }
+
+
+BigReal operator- (BigReal &a, BigReal &b)
+{
+    BigReal c;
+
+    if((a.MyNum[0] == '-' && b.MyNum[0] == '-') || (a.MyNum[0] != '-' && b.MyNum[0] != '-'))
+    {
+
+    }
+}
+    
