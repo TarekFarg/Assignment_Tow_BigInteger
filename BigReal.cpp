@@ -193,7 +193,7 @@ BigReal operator- (BigReal &a, BigReal &b)
         if(remain == 1)
             result += '1';
 
-        result += '-';
+        //result += '-';
         
         for (int i = result.length() - 1; i >= 0; i--)
         {
