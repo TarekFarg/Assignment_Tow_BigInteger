@@ -13,6 +13,7 @@ int main()
 
     BigReal a(n);
     BigReal b(m);
+    BigReal c;
 
     /*a.set_num("1111");
     b.set_num("1111");
@@ -20,12 +21,15 @@ int main()
     cout << a.len << " " << b.len << endl;*/
 
 
-    if(a == b)
+    /*if(a == b)
         cout << "equal" << endl;
     else
         cout << "not equal" << endl;
+*/
 
-    
+    c = a - b;
+
+    cout << c.MyNum << endl;
 
 
 }
