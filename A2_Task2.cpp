@@ -14,6 +14,11 @@ int main()
     BigReal a(n);
     BigReal b(m);
 
+    /*a.set_num("1111");
+    b.set_num("1111");
+
+    cout << a.len << " " << b.len << endl;*/
+
 
     if(a == b)
         cout << "equal" << endl;
