@@ -13,7 +13,7 @@ class BigReal
         string MyNum;           // numbers before index point 
         string MyNumP = "";          // numbers after index point
         int sign;              // -1 --> negative , 1 --> positive
-        int index_point;       // the position of the decimal point
+        int index_point = -1;       // the position of the decimal point
         void set_sign();
         void set_len();
         void set_index_point();
