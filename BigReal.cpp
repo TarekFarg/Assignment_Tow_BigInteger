@@ -9,20 +9,22 @@ void BigReal::set_num(string num) {
     set_len();
     set_index_point();
 
-    /*for (int i = index_point+1; i < MyNum.length(); i++)
+    /*if(index_point != -1)
     {
-        MyNumP += MyNum[i];
-    }
-    
-    int i = MyNum.length();
-    while(i != index_point)
-    {
-        MyNum.pop_back();
-        i--;
-    }
-    //MyNum.pop_back();*/
+        for (int i = index_point+1; i < MyNum.length(); i++)
+        {
+            MyNumP += MyNum[i];
+        }
+        
+        int i = MyNum.length();
+        while(i != index_point)
+        {
+            MyNum.pop_back();
+            i--;
+        }
+        //MyNum.pop_back();
+    }*/
 }
-
 string BigReal::get_num()
 {
     return MyNum;
