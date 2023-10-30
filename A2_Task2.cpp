@@ -3,17 +3,17 @@
 #include "BigReal.h"
 
 using namespace std;
-int main() 
+int main()
 {
     //cout << "Hello, we will solve task to here\n" << std::endl;
-    
+
     string n, m;
     cin >> n >> m;
 
 
     BigReal a(n);
     BigReal b(m);
-    BigReal c;
+    //BigReal c;
 
     /*a.set_num("1111");
     b.set_num("1111");
@@ -27,9 +27,13 @@ int main()
         cout << "not equal" << endl;
 */
 
-    c = a - b;
+    //c = a - b;
 
-    cout << c.MyNum << endl;
+    //cout << c.MyNum << endl;
 
+    if (a > b)
+        cout << " a is bigger than b\n";
+    else
+        cout << "a is not bigger than b\n";
 
 }

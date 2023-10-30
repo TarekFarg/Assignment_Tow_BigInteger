@@ -6,28 +6,20 @@
 
 void BigReal::set_num(string num) {
     MyNum = num;
-    set_len();
-    set_index_point();
-
-    if(index_point != -1)
-    {
-        for (int i = index_point+1; i <= MyNum.length()-1; i++)
-        {
-            MyNumP += MyNum[i];
-        }
-        
-        int i = MyNum.length();
-        while(i != index_point)
-        {
-            MyNum.pop_back();
-            i--;
-        }
-    }
 }
-
 string BigReal::get_num()
 {
     return MyNum;
+}
+
+string BigReal::get_nump()
+{
+    return MyNump;
+}
+
+int BigReal::get_index_point()
+{
+    return index_point;
 }
 
 void BigReal::set_sign() {
@@ -41,49 +33,84 @@ int BigReal::get_sign() {
     return sign;
 }
 
+bool BigReal::operator>(BigReal SecNum)
+{
+    if (sign != SecNum.sign)
+    {
+        if (sign == 1 )         // MyNum is pos and secNum is neg
+            return true;
+        else                    // MyNum is neg and secNum is pos
+            return false;
+    }
+    if (sign == 1 )             // MyNum and SecNum is pos 
+    {
+        if (MyNum > SecNum.MyNum)
+            return true;
+        else if (MyNum < SecNum.MyNum)
+            return false;
+        else if (MyNump > SecNum.MyNump)
+            return true;
+        return false;  
+    }
+    else                    // MyNum and SecNum is neg
+    {
+        if (MyNum < SecNum.MyNum)
+            return true;
+        else if (MyNum > SecNum.MyNum)
+            return false;
+        else if (MyNump < SecNum.MyNump)
+            return true;
+        return false;
+    }
+    return false;
+}
+
 void BigReal::set_len() {
     len = MyNum.size();
 }
 
 void BigReal::set_index_point() {
+    string temp;
     for (int i = 0; i < len; ++i) {
+        if (MyNum[i] == '-' || MyNum[i] == '+')
+            continue;
+        temp += MyNum[i];
         if (MyNum[i] == '.') {
             index_point = i;
-            break;
+            for (i = i; i < len; i++) {
+                MyNump += MyNum[i];
+            }    
         }
     }
+    MyNum = temp;
 }
 
-
-BigReal::BigReal()
+BigReal::BigReal() :MyNum("0")
 {
-    set_num("");
+    set_sign();
     set_len();
     set_index_point();
-    set_sign();
 }
-BigReal::BigReal(string num)
+BigReal::BigReal(string num) :MyNum(num)
 {
-    set_num(num);
+    set_sign();
     set_len();
     set_index_point();
-    set_sign();
 }
 
-bool operator == (BigReal &a, BigReal &b)
+bool operator == (BigReal& a, BigReal& b)
 {
-    if(a.len != b.len)
+    if (a.len != b.len)
         return 0;
 
-    if(a.MyNum == b.MyNum)
+    if (a.MyNum == b.MyNum)
         return 1;
 
     return 0;
 }
 
 
-BigReal operator- (BigReal &a, BigReal &b)
+BigReal operator- (BigReal& a, BigReal& b)
 {
-    
+    return BigReal();
 }
-    
