@@ -418,7 +418,14 @@ BigReal operator+ (BigReal& a, BigReal& b)
 
 
     //cout << c.MyNum1 << " " << c.MyNum2 << endl;
-    c.MyNum = c.MyNum1 ;
+
+    c.MyNum = "-";
+    
+    if(c.sign == -1)
+        c.MyNum += c.MyNum1;
+    else
+        c.MyNum = c.MyNum1;
+
     if (c.MyNum2.size())
         c.MyNum += '.' + c.MyNum2;
     return c;
