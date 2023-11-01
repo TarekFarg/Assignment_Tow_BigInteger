@@ -25,7 +25,7 @@ int main()
 */
 
     c = a + b;
-    cout << c.get_num() << ' ' << a.get_num() << ' ' << b.get_num() << endl;
+    cout << ' ' << a.get_num() << " + " << b.get_num() << " = " << c.get_num() << endl;
 
     /*
     if (a > b)
