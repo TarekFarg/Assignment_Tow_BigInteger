@@ -27,6 +27,9 @@ int main()
     c = a + b;
     cout << ' ' << a.get_num() << " + " << b.get_num() << " = " << c.get_num() << endl;
 
+    c = a - b;
+    cout << ' ' << a.get_num() << " - " << b.get_num() << " = " << c.get_num() << endl;
+
     /*
     if (a > b)
         cout << " a is bigger than b\n";
