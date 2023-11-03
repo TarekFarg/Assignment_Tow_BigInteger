@@ -4,7 +4,8 @@
 
 #include "BigReal.h"
 
-void BigReal::set_num(string num) {
+void BigReal::set_num(string num)
+{
     MyNum = num;
     set_sign();
     set_len();
@@ -17,7 +18,8 @@ string BigReal::get_num()
 }
 
 
-void BigReal::set_sign() {
+void BigReal::set_sign() 
+{
     if (MyNum[0] == '-')
         sign = -1;
     else
@@ -83,11 +85,13 @@ bool BigReal::operator>(BigReal SecNum)
     return false;
 }
 
-void BigReal::set_len() {
+void BigReal::set_len() 
+{
     len = MyNum.size();
 }
 
-void BigReal::set_index_point() {
+void BigReal::set_index_point() 
+{
     for (int i = 0; i < len; ++i) {
         if (MyNum[i] == '-' || MyNum[i] == '+')
             continue;
@@ -261,6 +265,9 @@ BigReal BigReal::operator- (BigReal y)
         }
         result.MyNum = ans;
     }
+
+    if(result.MyNum == "")
+        result.MyNum = "0";
     return result ;
 }
 
@@ -270,6 +277,12 @@ BigReal operator+ (BigReal& a, BigReal& b)
     string result;
     int remain = 0, temp = 0;
     bool add = 0, subt = 0;
+
+    if(a.sign != b.sign)
+    {
+        c = a - b;
+        return c;
+    }
 
 
     if (b.MyNum2.length() < a.MyNum2.length())
