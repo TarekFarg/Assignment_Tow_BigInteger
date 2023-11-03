@@ -276,14 +276,24 @@ BigReal operator+ (BigReal& a, BigReal& b)
     BigReal c;
     string result;
     int remain = 0, temp = 0;
-    bool add = 0, subt = 0;
+    bool add = 0;
 
-    if(a.sign != b.sign)
+    if(a.sign == 1 & b.sign == -1)
     {
+        b.sign = 1;
+
         c = a - b;
         return c;
     }
 
+
+    if(a.sign == -1 & b.sign == 1)
+    {
+        b.sign = -1;
+        
+        c = a - b;
+        return c;
+    }
 
     if (b.MyNum2.length() < a.MyNum2.length())
     {
