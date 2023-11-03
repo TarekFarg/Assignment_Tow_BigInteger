@@ -117,7 +117,7 @@ string BigReal::dif(string x1, string x2, string y1, string y2)
                 ans = char(x2[i] - y2[i] + '0') + ans;
             else
             {
-                int j = i;
+                int j = i-1;
                 while (j >= 0 && x2[j] == '0')
                 {
                     x2[j] = '9';
@@ -198,7 +198,7 @@ bool operator == (BigReal& a, BigReal& b)
 }
 
 
-BigReal BigReal::operator- (BigReal& y)
+BigReal BigReal::operator- (BigReal y)
 {
     BigReal x(MyNum);
     BigReal result;
@@ -241,14 +241,16 @@ BigReal BigReal::operator- (BigReal& y)
     else if (x.sign == -1 && y.sign == 1) // -(x+y) 
     {
         //cout << 2 << endl;
-        y.sign = -1;
-        result = x + y;
+        BigReal z = y;
+        z.sign = -1;
+        result = x + z;
     }
     else if (x.sign == 1 && y.sign == -1)  // x+y
     {
         //cout << 3 << endl;
-        y.sign = 1;
-        result = x + y;
+        BigReal z = y;
+        z.sign = 1;
+        result = x + z;
     }
     else // x-y
     {
@@ -272,7 +274,7 @@ BigReal BigReal::operator- (BigReal& y)
     return result;
 }
 
-BigReal operator+ (BigReal& a, BigReal& b)
+BigReal operator+ (BigReal a, BigReal b)
 {
     BigReal c;
     string result;
@@ -281,18 +283,18 @@ BigReal operator+ (BigReal& a, BigReal& b)
 
     if (a.sign == 1 && b.sign == -1)
     {
-        b.sign = 1;
-
-        c = a - b;
+        BigReal z = b;
+        z.sign = 1;
+        c = a - z;
         return c;
     }
 
 
     if (a.sign == -1 && b.sign == 1)
     {
-        b.sign = -1;
-
-        c = a - b;
+        BigReal z = b;
+        z.sign = -1;
+        c = a - z;
         return c;
     }
 
