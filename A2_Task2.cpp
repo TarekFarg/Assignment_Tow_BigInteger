@@ -8,7 +8,7 @@ int main()
     //cout << "Hello, we will solve task to here\n" << std::endl;
 
     string n, m;
-    cout << "Enter the first num and the second num  \n";
+    cout << "Enter the first num(a) and the second num(b)  \n";
     cin >> n >> m;
 
 
@@ -25,10 +25,9 @@ int main()
 */
 
     c = a + b;
-    cout << ' ' << a.get_num() << " + " << b.get_num() << " = " << c.get_num() << endl;
-
+    cout << "a + b = " << c.get_num() << endl;
     c = a - b;
-    cout << ' ' << a.get_num() << " - " << b.get_num() << " = " << c.get_num() << endl;
+    cout << "a - b = " << c.get_num() << endl;
 
     /*
     if (a > b)

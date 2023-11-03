@@ -18,7 +18,7 @@ string BigReal::get_num()
 }
 
 
-void BigReal::set_sign() 
+void BigReal::set_sign()
 {
     if (MyNum[0] == '-')
         sign = -1;
@@ -30,12 +30,12 @@ bool BigReal::operator>(BigReal SecNum)
 {
     if (sign != SecNum.sign)
     {
-        if (sign == 1 )         // MyNum is pos and secNum is neg
+        if (sign == 1)         // MyNum is pos and secNum is neg
             return true;
         else                    // MyNum is neg and secNum is pos
             return false;
     }
-    if (sign == 1 )             // MyNum and SecNum is pos 
+    if (sign == 1)             // MyNum and SecNum is pos 
     {
         if (MyNum1.size() > SecNum.MyNum1.size())
             return true;
@@ -56,7 +56,7 @@ bool BigReal::operator>(BigReal SecNum)
             else
                 return (MyNum2[i] > SecNum.MyNum2[i]);
         }
-       
+
         return (MyNum2.size() > SecNum.MyNum2.size());
     }
     else                    // MyNum and SecNum is neg
@@ -65,7 +65,7 @@ bool BigReal::operator>(BigReal SecNum)
             return true;
         else if (MyNum1.size() > SecNum.MyNum1.size())
             return false;
-        else 
+        else
         {
             int i = 0;
             while (i < MyNum1.size() && MyNum1[i] == SecNum.MyNum1[i]) i++;
@@ -85,12 +85,12 @@ bool BigReal::operator>(BigReal SecNum)
     return false;
 }
 
-void BigReal::set_len() 
+void BigReal::set_len()
 {
     len = MyNum.size();
 }
 
-void BigReal::set_index_point() 
+void BigReal::set_index_point()
 {
     for (int i = 0; i < len; ++i) {
         if (MyNum[i] == '-' || MyNum[i] == '+')
@@ -99,7 +99,7 @@ void BigReal::set_index_point()
             index_point = i;
             for (i = i + 1; i < len; i++) {
                 MyNum2 += MyNum[i];
-            }    
+            }
         }
         else
             MyNum1 += MyNum[i];
@@ -161,7 +161,7 @@ string BigReal::dif(string x1, string x2, string y1, string y2)
             ans = char(d + '0') + ans;
         }
     }
-    if(ans[0] == '0')
+    if (ans[0] == '0')
     {
         int i = 0;
         while (ans[i] == '0') i++;
@@ -177,7 +177,7 @@ BigReal::BigReal() :MyNum("")
 {
     set_sign();
     set_len();
-    set_index_point();    
+    set_index_point();
 }
 BigReal::BigReal(string num) :MyNum(num)
 {
@@ -198,7 +198,7 @@ bool operator == (BigReal& a, BigReal& b)
 }
 
 
-BigReal BigReal::operator- (BigReal y)
+BigReal BigReal::operator- (BigReal& y)
 {
     BigReal x(MyNum);
     BigReal result;
@@ -241,12 +241,13 @@ BigReal BigReal::operator- (BigReal y)
     else if (x.sign == -1 && y.sign == 1) // -(x+y) 
     {
         //cout << 2 << endl;
+        y.sign = -1;
         result = x + y;
-        result.MyNum = '-' + result.MyNum;
     }
     else if (x.sign == 1 && y.sign == -1)  // x+y
     {
         //cout << 3 << endl;
+        y.sign = 1;
         result = x + y;
     }
     else // x-y
@@ -266,9 +267,9 @@ BigReal BigReal::operator- (BigReal y)
         result.MyNum = ans;
     }
 
-    if(result.MyNum == "")
+    if (result.MyNum == "")
         result.MyNum = "0";
-    return result ;
+    return result;
 }
 
 BigReal operator+ (BigReal& a, BigReal& b)
@@ -278,7 +279,7 @@ BigReal operator+ (BigReal& a, BigReal& b)
     int remain = 0, temp = 0;
     bool add = 0;
 
-    if(a.sign == 1 & b.sign == -1)
+    if (a.sign == 1 && b.sign == -1)
     {
         b.sign = 1;
 
@@ -287,10 +288,10 @@ BigReal operator+ (BigReal& a, BigReal& b)
     }
 
 
-    if(a.sign == -1 & b.sign == 1)
+    if (a.sign == -1 && b.sign == 1)
     {
         b.sign = -1;
-        
+
         c = a - b;
         return c;
     }
@@ -443,8 +444,8 @@ BigReal operator+ (BigReal& a, BigReal& b)
     //cout << c.MyNum1 << " " << c.MyNum2 << endl;
 
     c.MyNum = "-";
-    
-    if(c.sign == -1)
+
+    if (c.sign == -1)
         c.MyNum += c.MyNum1;
     else
         c.MyNum = c.MyNum1;
