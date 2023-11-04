@@ -10,13 +10,15 @@ ostream& operator<<(ostream& output, const BigReal& BR)
 void BigReal::set_num(string num)
 {
     MyNum = "0";
-    bool valid = 1;
+    bool valid = 1 , dot = 0 ;
     for (int i = 0; i < num.size(); i++)
     {
         if (num[i] < '0' || num[i] > '9')
         {
-            if (num[i] == '-' || num[i] == '+' || num[i] == '.')
+            if ((num[i] == '-' || num[i] == '+') && i == 0)
                 continue;
+            else if (num[i] == '.' && dot == 0)
+                dot = 1;
             else
                 valid = 0;
         }
@@ -29,7 +31,7 @@ void BigReal::set_num(string num)
         set_index_point();
     }
     else
-        cout << "This is not valid number\nYou number now equal to the default value 0 \n ";
+        cout << "This is not valid number\nYou number now equal to the default value 0 \n\n";
 }
 
 string BigReal::get_num()
@@ -213,13 +215,15 @@ BigReal::BigReal() :MyNum("")
 BigReal::BigReal(string num) 
 {
     MyNum = "0";
-    bool valid = 1;
+    bool valid = 1, dot = 0;
     for (int i = 0; i < num.size(); i++)
     {
         if (num[i] < '0' || num[i] > '9')
         {
-            if (num[i] == '-' || num[i] == '+' || num[i] == '.')
+            if ((num[i] == '-' || num[i] == '+') && i == 0)
                 continue;
+            else if (num[i] == '.' && dot == 0)
+                dot = 1;
             else
                 valid = 0;
         }
@@ -232,7 +236,7 @@ BigReal::BigReal(string num)
         set_index_point();
     }
     else
-        cout << "This is not valid number\nYou number now equal to the default value 0 \n ";
+        cout << "This is not valid number\nYou number now equal to the default value 0 \n\n";
 }
 
 bool operator == (BigReal& a, BigReal& b)

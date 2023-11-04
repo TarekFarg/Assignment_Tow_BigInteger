@@ -13,17 +13,21 @@ int main()
 {
     //cout << "Hello, we will solve task to here\n" << std::endl;
     string n, m;
-    cout << "Enter the first num(a) \n";
+    cout << "Enter the first num(a) : ";
     cin >> n;
-    cout << "Enter the second num(b) \n ";
-    cin >> m;
+    cout << endl;
     BigReal a(n);
+
+    cout << "Enter the second num(b) : ";
+    cin >> m;
+    cout << endl;
     BigReal b(m);
+
     BigReal c;
     if (a == b)
     {
 
-        cout << "equal" << endl;
+        cout << "a = b" << endl;
     }
 
     else if (a > b)
@@ -36,9 +40,9 @@ int main()
     }
 
     c = a + b;
-    cout << "The addition= " << c << endl;
+    cout << "The addition = " << c << endl;
     c = a - b;
-    cout << "The subtraction: " << c << endl;
+    cout << "The subtraction = " << c << endl;
 
 
 
