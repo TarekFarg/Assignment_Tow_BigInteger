@@ -1,6 +1,6 @@
 /*
-* FCAI â€“ OOP Programming â€“ 2023 - Assignment 2
-* Author1 and ID and Group: Mahmoud  20220317
+* FCAI – OOP Programming – 2023 - Assignment 2
+* Author1 and ID and Group: Khaled  20220317
 * Author2 and ID and Group: Alaa    20230615
 * Author3 and ID and Group: Tarek   20220171
 */
@@ -13,8 +13,10 @@ int main()
 {
     //cout << "Hello, we will solve task to here\n" << std::endl;
     string n, m;
-    cout << "Enter the first num(a) and the second num(b)  \n";
-    cin >> n >> m;
+    cout << "Enter the first num(a) \n";
+    cin >> n;
+    cout << "Enter the second num(b) \n ";
+    cin >> m;
     BigReal a(n);
     BigReal b(m);
     BigReal c;

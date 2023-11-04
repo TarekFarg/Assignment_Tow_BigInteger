@@ -9,10 +9,27 @@ ostream& operator<<(ostream& output, const BigReal& BR)
 
 void BigReal::set_num(string num)
 {
-    MyNum = num;
-    set_sign();
-    set_len();
-    set_index_point();
+    MyNum = "0";
+    bool valid = 1;
+    for (int i = 0; i < num.size(); i++)
+    {
+        if (num[i] < '0' || num[i] > '9')
+        {
+            if (num[i] == '-' || num[i] == '+' || num[i] == '.')
+                continue;
+            else
+                valid = 0;
+        }
+    }
+    if (valid)
+    {
+        MyNum = num;
+        set_sign();
+        set_len();
+        set_index_point();
+    }
+    else
+        cout << "This is not valid number\nYou number now equal to the default value 0 \n ";
 }
 
 string BigReal::get_num()
@@ -193,11 +210,29 @@ BigReal::BigReal() :MyNum("")
     set_len();
     set_index_point();
 }
-BigReal::BigReal(string num) :MyNum(num)
+BigReal::BigReal(string num) 
 {
-    set_sign();
-    set_len();
-    set_index_point();
+    MyNum = "0";
+    bool valid = 1;
+    for (int i = 0; i < num.size(); i++)
+    {
+        if (num[i] < '0' || num[i] > '9')
+        {
+            if (num[i] == '-' || num[i] == '+' || num[i] == '.')
+                continue;
+            else
+                valid = 0;
+        }
+    }
+    if(valid)
+    {
+        MyNum = num;
+        set_sign();
+        set_len();
+        set_index_point();
+    }
+    else
+        cout << "This is not valid number\nYou number now equal to the default value 0 \n ";
 }
 
 bool operator == (BigReal& a, BigReal& b)
