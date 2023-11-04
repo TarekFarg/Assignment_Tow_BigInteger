@@ -3,6 +3,11 @@
 //
 
 #include "BigReal.h"
+ostream &operator<<( ostream &output, const BigReal &BR )
+    {
+        output << BR.MyNum;
+        return output;
+    }
 
 void BigReal::set_num(string num)
 {
@@ -35,7 +40,7 @@ bool BigReal::operator>(BigReal SecNum)
         else                    // MyNum is neg and secNum is pos
             return false;
     }
-    if (sign == 1)             // MyNum and SecNum is pos 
+    if (sign == 1)             // MyNum and SecNum is pos
     {
         if (MyNum1.size() > SecNum.MyNum1.size())
             return true;
@@ -232,13 +237,13 @@ BigReal BigReal::operator- (BigReal y)
         {
             ans = '-' + dif(x1, x2, y1, y2);
         }
-        else        // y-x 
+        else        // y-x
         {
             ans = dif(y1, y2, x1, x2);
         }
         result.MyNum = ans;
     }
-    else if (x.sign == -1 && y.sign == 1) // -(x+y) 
+    else if (x.sign == -1 && y.sign == 1) // -(x+y)
     {
         //cout << 2 << endl;
         BigReal z = y;
@@ -255,13 +260,13 @@ BigReal BigReal::operator- (BigReal y)
     else // x-y
     {
         x.sign = 1, y.sign = 1;
-        //cout << 4 << endl; 
+        //cout << 4 << endl;
         if (y > x) // -(y-x)
         {
             //cout << x1 << ' ' << x2 << ' ' << y1 << ' ' << y2 << endl;
             ans = '-' + dif(y1, y2, x1, x2);
         }
-        else       // x-y 
+        else       // x-y
         {
             //cout << x1 << ' ' << x2 << ' ' << y1 << ' ' << y2 << endl;
             ans = dif(x1, x2, y1, y2);
