@@ -1,9 +1,7 @@
-//
-// Created by Tarek on 10/27/2023.
-//
+
 
 #include "BigReal.h"
-ostream &operator<<( ostream &output, const BigReal &BR )
+ostream& operator<<(ostream& output, const BigReal& BR)
 {
     output << BR.MyNum;
     return output;
@@ -32,10 +30,8 @@ void BigReal::set_sign()
 }
 bool BigReal::operator < (BigReal SecNum)
 {
-string a,b;
-    BigReal n(a);
-    BigReal m(b);
-    if ( a==b && a>b)
+    BigReal n(MyNum);
+    if (n == SecNum && n > SecNum)
         return false;
 
     else
@@ -135,7 +131,7 @@ string BigReal::dif(string x1, string x2, string y1, string y2)
                 ans = char(x2[i] - y2[i] + '0') + ans;
             else
             {
-                int j = i-1;
+                int j = i - 1;
                 while (j >= 0 && x2[j] == '0')
                 {
                     x2[j] = '9';

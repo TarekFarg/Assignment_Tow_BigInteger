@@ -1,6 +1,4 @@
-//
-// Created by Tarek on 10/27/2023.
-//
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -27,9 +25,9 @@ public:
     friend BigReal operator+ (BigReal a, BigReal b);
     BigReal();              // Default Constructor
     BigReal(string num);   // Parameterized Constructor
-    friend ostream &operator<<( ostream &output, const BigReal &BR );
+    friend ostream& operator<<(ostream& output, const BigReal& BR);
     friend bool operator == (BigReal& a, BigReal& b);
 };
-ostream &operator<<( ostream &output, const BigReal &BR );
+ostream& operator<<(ostream& output, const BigReal& BR);
 bool operator == (BigReal& a, BigReal& b);
 BigReal operator+ (BigReal a, BigReal b);
