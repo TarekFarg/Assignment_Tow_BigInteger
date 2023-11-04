@@ -4,10 +4,10 @@
 
 #include "BigReal.h"
 ostream &operator<<( ostream &output, const BigReal &BR )
-    {
-        output << BR.MyNum;
-        return output;
-    }
+{
+    output << BR.MyNum;
+    return output;
+}
 
 void BigReal::set_num(string num)
 {
@@ -30,7 +30,17 @@ void BigReal::set_sign()
     else
         sign = 1;
 }
+bool BigReal::operator < (BigReal SecNum)
+{
+string a,b;
+    BigReal n(a);
+    BigReal m(b);
+    if ( a==b && a>b)
+        return false;
 
+    else
+        return true;
+}
 bool BigReal::operator>(BigReal SecNum)
 {
     if (sign != SecNum.sign)
@@ -97,12 +107,15 @@ void BigReal::set_len()
 
 void BigReal::set_index_point()
 {
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; i < len; ++i)
+    {
         if (MyNum[i] == '-' || MyNum[i] == '+')
             continue;
-        if (MyNum[i] == '.') {
+        if (MyNum[i] == '.')
+        {
             index_point = i;
-            for (i = i + 1; i < len; i++) {
+            for (i = i + 1; i < len; i++)
+            {
                 MyNum2 += MyNum[i];
             }
         }
@@ -149,7 +162,7 @@ string BigReal::dif(string x1, string x2, string y1, string y2)
                 ans = '.' + ans;
         }
     }
-    for (int i = x1.size() - 1; i >= 0;i--)
+    for (int i = x1.size() - 1; i >= 0; i--)
     {
         if (x1[i] >= y1[i])
             ans = char(x1[i] - y1[i] + '0') + ans;
@@ -348,13 +361,16 @@ BigReal operator+ (BigReal a, BigReal b)
     {
         c.MyNum2 += result[i];
     }
-    temp = 0; result = "";
+    temp = 0;
+    result = "";
     if (remain == 1)
     {
         add = 1;
     }
 
-    remain = 0; temp = 0; result = "";
+    remain = 0;
+    temp = 0;
+    result = "";
 
 
     if (b.MyNum1.length() < a.MyNum1.length())
@@ -409,7 +425,8 @@ BigReal operator+ (BigReal a, BigReal b)
     {
         c.MyNum1 += result[i];
     }
-    temp = 0; result = "";
+    temp = 0;
+    result = "";
 
 
     if (add)

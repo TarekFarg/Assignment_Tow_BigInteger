@@ -22,6 +22,7 @@ public:
     void set_num(string num);   // set MyNum
     string get_num();           // get MyNum
     bool operator > (BigReal SecNum);
+    bool operator < (BigReal SecNum);
     BigReal operator- (BigReal x);
     friend BigReal operator+ (BigReal a, BigReal b);
     BigReal();              // Default Constructor

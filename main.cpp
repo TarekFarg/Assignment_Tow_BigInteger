@@ -13,14 +13,15 @@ int main()
     BigReal c;
     if(a == b)
     {
+
         cout << "equal" << endl;
     }
 
-    else if (a > b)
+    else if (a >b)
     {
         cout << "a is bigger than b"<< endl;
     }
-    else
+    else if(a<b)
     {
         cout << "b is bigger than a"<< endl;
     }
